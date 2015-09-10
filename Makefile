@@ -1,11 +1,11 @@
 NAME=tutoriel_rpi_qemu
 
-JDHP_PDF_DIR=~/git/pub/jdhp/files/pdf
-#JDHP_HEVEA_DIR=~/git/pub/jdhp/files/hevea
+JDHP_PDF_DIR=~/git/pub/projects/jdhp/files/pdf
+#JDHP_HEVEA_DIR=~/git/pub/projects/jdhp/files/hevea
 # HEVEA doit être mis dans www plutot que dans download pour les stats et le référencement...
-JDHP_HEVEA_DIR=~/git/pub/jdhp/jdhp/hevea
-JDHP_UPLOAD_PDF_SCRIPT=~/git/pub/jdhp/files_upload.sh
-JDHP_UPLOAD_HEVEA_SCRIPT=~/git/pub/jdhp/jdhp/sync_hevea.sh
+JDHP_HEVEA_DIR=~/git/pub/projects/jdhp/jdhp/hevea
+JDHP_UPLOAD_PDF_SCRIPT=~/git/pub/projects/jdhp/files_upload.sh
+JDHP_UPLOAD_HEVEA_SCRIPT=~/git/pub/projects/jdhp/jdhp/sync_hevea.sh
 
 #############
 
