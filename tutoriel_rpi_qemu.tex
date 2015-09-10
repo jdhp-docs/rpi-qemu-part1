@@ -249,6 +249,13 @@ loop0p2} et supprimer les périphériques précédemment générés~:
 # kpartx -d 2014-12-24-wheezy-raspbian.img
 \end{verbatim}
 
+Le script suivant résume toutes les commandes que nous avons utilisé pour
+configurer l'image du système~:
+
+\begin{small}
+    \lstinputlisting[language=Sh]{listings/setup_partition.sh}
+    %\lstinputlisting[language=Shell, firstline=2, lastline=5]{listings/setup_partition.sh}
+\end{small}
 
 % http://www.raspberrypi.org/forums/viewtopic.php?f=29&t=48811&p=380844&hilit=kpartx
 % $ sudo losetup /dev/loop0 raspbian.img

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-RASPBIAN_IMAGE_FILE=raspbian.img
+RASPBIAN_IMAGE_FILE=2014-12-24-wheezy-raspbian.img
 MOUNT_PATH=/mnt/loop0p2
 
 # Mount the partition
@@ -9,7 +9,8 @@ mkdir -v ${MOUNT_PATH} 2> /dev/null
 mount /dev/mapper/loop0p2 ${MOUNT_PATH}
 
 # Disable libcofi_rpi.so
-# Comment "/usr/lib/arm-linux-gnueabihf/libcofi_rpi.so" in "${MOUNT_PATH}/etc/ld.so.preload"
+# Comment "/usr/lib/arm-linux-gnueabihf/libcofi_rpi.so"
+# in "${MOUNT_PATH}/etc/ld.so.preload"
 sed -ri "s/^.*libcofi_rpi.so/#\0/g" ${MOUNT_PATH}/etc/ld.so.preload
 
 # Fix partition names
