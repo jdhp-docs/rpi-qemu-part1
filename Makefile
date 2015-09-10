@@ -11,7 +11,7 @@ JDHP_UPLOAD_HEVEA_SCRIPT=~/git/pub/projects/jdhp/jdhp/sync_hevea.sh
 
 all: $(NAME).pdf
 
-.PHONY : all clean init jdhp
+.PHONY : all clean init jdhp html
 
 ## ARTICLE ##
 
@@ -20,11 +20,15 @@ SRCARTICLE=$(NAME).tex\
 		   commands.tex\
 		   bibliography.bib
 
+pdf: $(NAME).pdf
+
 $(NAME).pdf: $(SRCARTICLE)
 	pdflatex $(NAME).tex
 	bibtex $(NAME)     # this is the name of the .aux file, not the .bib file !
 	pdflatex $(NAME).tex
 	pdflatex $(NAME).tex
+
+ps: $(NAME).ps
 
 $(NAME).ps: $(SRCARTICLE)
 	latex $(NAME).tex
@@ -32,6 +36,8 @@ $(NAME).ps: $(SRCARTICLE)
 	latex $(NAME).tex
 	latex $(NAME).tex
 	dvips $(NAME).dvi
+
+html: $(NAME).html
 
 $(NAME).html: $(SRCARTICLE)
 	hevea -fix $(NAME).tex
