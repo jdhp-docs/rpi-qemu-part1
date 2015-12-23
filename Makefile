@@ -1,5 +1,7 @@
 NAME=tutoriel_rpi_qemu
 
+# JDHP OPTIONS ################################################################
+
 JDHP_PDF_DIR=~/git/pub/projects/jdhp/files/pdf
 #JDHP_HEVEA_DIR=~/git/pub/projects/jdhp/files/hevea
 # HEVEA doit être mis dans www plutot que dans download pour les stats et le référencement...
@@ -7,13 +9,13 @@ JDHP_HEVEA_DIR=~/git/pub/projects/jdhp/jdhp/hevea
 JDHP_UPLOAD_PDF_SCRIPT=~/git/pub/projects/jdhp/files_upload.sh
 JDHP_UPLOAD_HEVEA_SCRIPT=~/git/pub/projects/jdhp/jdhp/sync_hevea.sh
 
-#############
+###############################################################################
 
 all: $(NAME).pdf
 
-.PHONY : all clean init jdhp html
+.PHONY : all clean init jdhp html ps pdf
 
-## ARTICLE ##
+## ARTICLE ####################################################################
 
 SRCARTICLE=$(NAME).tex\
 		   article_packages.tex\
@@ -44,6 +46,8 @@ $(NAME).html: $(SRCARTICLE)
 	bibhva $(NAME)     # this is the name of the .aux file, not the .bib file !
 	hevea -fix $(NAME).tex
 
+## JDHP #######################################################################
+
 jdhp:$(NAME).pdf $(NAME).html
 	# Copy PDF
 	cp -v $(NAME).pdf  $(JDHP_PDF_DIR)/
@@ -56,7 +60,7 @@ jdhp:$(NAME).pdf $(NAME).html
 	$(JDHP_UPLOAD_PDF_SCRIPT)
 	$(JDHP_UPLOAD_HEVEA_SCRIPT)
 
-## CLEAN ##
+## CLEAN ######################################################################
 
 clean:
 	@echo "suppression des fichiers de compilation"
